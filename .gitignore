@@ -3,4 +3,5 @@
 /bin/
 /dependency-reduced-pom.xml
 /lib/
-/target/
+/target/.pre-commit-config.yaml
+.selid-hooks/
