@@ -42,14 +42,13 @@ Be aware that plugins can carry all sorts of heinous things, so it's recommended
 The output directory structure looks like this:
 
 ```
-LilithsThrone_0.1.2.3.jar
-res/mods/$YOURNAME/
-    plugins/
-        plugin1.jar
-        plugin2.jar
-        ...
-    clothing/
-    ...
+.
+├── LilithsThrone_#_#_#_#.jar
+└── res
+    └── mods
+        └── $AUTHORNAME
+            └── plugins
+                └── infodumper-#.#.#-SNAPSHOT.jar
 ```
 
 I also recommend adding a `README` to the root of the mod explaining what it is and how to install it.
@@ -61,7 +60,7 @@ I also recommend adding a `README` to the root of the mod explaining what it is 
   * Plugins are identified uniquely by a Universally Unique Identifier (UUID).  This ensures other plugins can test for their existence without getting broken by renames or forks.
   * Plugins can advertise that they *provide* certain things by providing by listing them as small `<tag>`s in `<providesTags>`.
   * Other plugins can delay loading until all of their `<requiredTags>` are satisfied by loaded mods.
-
+* No version data should be in the filename, to avoid having 30 different versions installed due to user overwrites.
 ## Plugin Class
 
 The `Plugin` class is your mod's entry point.  When loaded, the plugin receives a call to `onStartup()`.  Other signals are available simply by overriding the method in your `Plugin` class.
