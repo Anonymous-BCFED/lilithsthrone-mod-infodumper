@@ -6,27 +6,34 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 import org.json.JSONWriter;
 
 import com.lilithsthrone.game.character.attributes.AbstractAttribute;
 import com.lilithsthrone.game.character.effects.AbstractPerk;
 import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.npc.NPC;
+import com.lilithsthrone.game.character.npc.misc.GenericFemaleNPC;
 import com.lilithsthrone.game.character.npc.misc.GenericMaleNPC;
 import com.lilithsthrone.utils.colours.Colour;
 
 public class PerkDumper {
 
 	private static NPC malenpc;
+	private static NPC femalenpc;
 
 	public static void dump() {
 		malenpc = new GenericMaleNPC(false);
+		femalenpc = new GenericFemaleNPC(false);
+		dumpPerks();
+		//dumpFetishes();
+	}
+
+	private static void dumpPerks() {
 		Path newFilePath = Paths.get("data", "internalData", "perks.json");
 		File parentDir = newFilePath.getParent().toFile();
 		if (!parentDir.isDirectory())
@@ -47,8 +54,14 @@ public class PerkDumper {
 					return;
 				json.key(Perk.getIdFromPerk(p));
 				json.object();
+				//json.key("id").value(p.getID());
 				json.key("renderingPriority").value(p.getRenderingPriority());
-				json.key("name").value(p.getName(malenpc));
+				json.key("name"); {
+					json.object();
+					json.key("male").value(p.getName(malenpc));
+					json.key("female").value(p.getName(femalenpc));
+					json.endObject();
+				}
 				json.key("colours").value(convertColours(p));
 				json.key("category").value(p.getPerkCategory().name());
 				json.key("equippableTrait").value(p.isEquippableTrait());
@@ -65,7 +78,7 @@ public class PerkDumper {
 
 	private static JSONObject convertAttributeMods(AbstractPerk p) {
 		JSONObject o = new JSONObject();
-		HashMap<AbstractAttribute, Integer> mods = p.getAttributeModifiers(malenpc);
+		Map<AbstractAttribute, Integer> mods = p.getAttributeModifiers(malenpc);
 		if (mods != null) {
 			mods.forEach((k, v) -> {
 				o.put(k.getName(), v.intValue());

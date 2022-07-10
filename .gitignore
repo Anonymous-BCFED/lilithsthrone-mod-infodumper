@@ -5,3 +5,4 @@
 /lib/
 /target/.pre-commit-config.yaml
 .selid-hooks/
+deploy-for-testing.sh
