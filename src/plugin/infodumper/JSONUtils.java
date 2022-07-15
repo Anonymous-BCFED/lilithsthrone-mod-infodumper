@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 public class JSONUtils {
     public static void dumpToInternalDataFile(JSONObject envelope, String filename) {
-        Path newFilePath = Paths.get("data", "internalData", "perks.json");
+        Path newFilePath = Paths.get("data", "internalData", filename);
         if (!newFilePath.getParent().toFile().isDirectory())
             newFilePath.getParent().toFile().mkdirs();
         try {

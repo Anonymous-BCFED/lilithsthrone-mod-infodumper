@@ -23,8 +23,11 @@ public class InfoDumperPlugin extends BasePlugin {
 	//@Override
 	public void onInitUniqueNPCs(List<Class<? extends NPC>> addedNpcs) {
 		System.out.println("Game.initUniqueNPCs() completed.");
-		System.out.println("  Beginning data dump.");
+		System.out.println("  Beginning data dump...");
+		System.out.println("    Perks...");
 		PerkDumper.dump();
+		System.out.println("    Fetishes...");
+		FetishDumper.dump();
 		System.out.println("  Data dump complete!");
 	}
 }

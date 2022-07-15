@@ -30,7 +30,6 @@ public class PerkDumper {
 		malenpc = new GenericMaleNPC(false);
 		femalenpc = new GenericFemaleNPC(false);
 		dumpPerks();
-		//dumpFetishes();
 	}
 
 	private static void dumpPerks() {
