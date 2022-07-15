@@ -6,3 +6,7 @@
 /target/.pre-commit-config.yaml
 .selid-hooks/
 deploy-for-testing.sh
+/.check-identity
+/.pre-commit-config.yaml
+/dist/
+/target/
