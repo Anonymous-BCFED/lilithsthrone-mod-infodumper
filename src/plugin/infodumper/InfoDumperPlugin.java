@@ -28,6 +28,11 @@ public class InfoDumperPlugin extends BasePlugin {
 		PerkDumper.dump();
 		System.out.println("    Fetishes...");
 		FetishDumper.dump();
+		System.out.println("    Status Effects...");
+		StatusEffectDumper.dump();
+		FetishDumper.dump();
+		System.out.println("    Clothing...");
+		ClothingDumper.dump();
 		System.out.println("  Data dump complete!");
 	}
 }

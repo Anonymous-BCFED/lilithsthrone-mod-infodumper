@@ -53,11 +53,17 @@ public class FetishDumper {
 					json.endObject();
 				}
 				json.key("associatedCorruptionLevel").value(f.getAssociatedCorruptionLevel().toString());
-				json.key("attributeModifiers");
-				f.getAttributeModifiers().forEach((k,v) -> {
-					json.key(k.toString());
-					json.value(v);
-				});
+				json.key("attributeModifiers"); 
+				{
+					json.object();
+					if(f.getAttributeModifiers()!=null) {
+						f.getAttributeModifiers().forEach((k,v) -> {
+							json.key(k.toString());
+							json.value(v);
+						});
+					}
+					json.endObject();
+				}
 				json.key("cost").value(f.getCost());
 				json.key("description"); {
 					json.object();
