@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+
 import org.json.JSONException;
 import org.json.JSONWriter;
 
@@ -43,9 +45,9 @@ public class FetishDumper {
 			Fetish.getAllFetishes().forEach(f -> {
 				if (f == null)
 					return;
-				json.key(f.getID());
+				json.key(f.getId());
 				json.object();
-				//json.key("id").value(f.getID());
+				//json.key("id").value(f.getId());
 				json.key("name"); {
 					json.object();
 					json.key("male").value(f.getName(malenpc));
@@ -76,20 +78,24 @@ public class FetishDumper {
 					json.object();
 					json.key("male"); {
 						json.array();
-						f.getExtraEffects(malenpc).forEach(l -> json.value(l));
+						List<String> list = f.getExtraEffects(malenpc);
+						if(list!=null){
+							list.forEach(l -> {
+								json.value(l);
+							});
+						}
 						json.endArray();
 					}
 					json.key("female"); {
 						json.array();
-						f.getExtraEffects(femalenpc).forEach(l -> json.value(l));
+						List<String> list = f.getExtraEffects(femalenpc);
+						if (list != null) {
+							list.forEach(l -> {
+								json.value(l);
+							});
+						}
 						json.endArray();
 					}
-					json.endObject();
-				}
-				json.key("name");{
-					json.object();
-					json.key("male").value(f.getName(malenpc));
-					json.key("female").value(f.getName(femalenpc));
 					json.endObject();
 				}
 				json.endObject();

@@ -10,17 +10,17 @@ public class InfoDumperPlugin extends BasePlugin {
 		System.out.println("Hello world!");
 	}
 
-	//@Override
+	@Override
 	public void onMainMain() {
 		System.out.println("Main.main() completed.");
 	}
 
-	//@Override
+	@Override
 	public void onMainStart() {
 		System.out.println("Main.start() completed.");
 	}
 
-	//@Override
+	@Override
 	public void onInitUniqueNPCs(List<Class<? extends NPC>> addedNpcs) {
 		System.out.println("Game.initUniqueNPCs() completed.");
 		System.out.println("  Beginning data dump...");
@@ -30,7 +30,6 @@ public class InfoDumperPlugin extends BasePlugin {
 		FetishDumper.dump();
 		System.out.println("    Status Effects...");
 		StatusEffectDumper.dump();
-		FetishDumper.dump();
 		System.out.println("    Clothing...");
 		ClothingDumper.dump();
 		System.out.println("  Data dump complete!");
