@@ -1,8 +1,8 @@
-<plugin id="120bab13-9187-49aa-9b9a-1b44e416d979" 
-	    version="0.0.2"
-	    name="Info Dumper" 
-	    license="MIT"
-	    mainClass="plugin.infodumper.InfoDumperPlugin">
+<plugin id="120bab13-9187-49aa-9b9a-1b44e416d979"
+		version="1.1.0"
+		name="Info Dumper"
+		license="MIT"
+		mainClass="plugin.infodumper.InfoDumperPlugin">
 	<contribs>
 		<contrib name="Anonymous-BCFED" role="coder bitch" />
 	</contribs>
