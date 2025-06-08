@@ -30,7 +30,7 @@ public class TestMaleNPC extends NPC {
                 Gender.M_P_MALE,
                 Subspecies.HUMAN,
                 RaceStage.HUMAN,
-                new CharacterInventory(0),
+                new CharacterInventory(false,0),
                 WorldType.EMPTY,
                 PlaceType.GENERIC_HOLDING_CELL,
                 false);

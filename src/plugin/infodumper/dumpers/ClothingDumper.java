@@ -41,7 +41,7 @@ public class ClothingDumper extends  BaseDumper{
             json.key("clothing");
             json.object();
             for (AbstractClothingType c : ClothingType.getAllClothing()) {
-                if (c == null)
+                if (c == null || ClothingType.getModdedClothingList().contains(c))
                     continue;
                 json.key(ClothingType.getIdFromClothingType(c));
                 json.object();

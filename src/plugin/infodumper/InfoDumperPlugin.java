@@ -1,6 +1,8 @@
 package plugin.infodumper;
 
 import com.lilithsthrone.game.character.npc.NPC;
+import com.lilithsthrone.game.character.npc.fields.Eisek;
+import com.lilithsthrone.main.Main;
 import com.lilithsthrone.modding.BasePlugin;
 import plugin.infodumper.dumpers.*;
 
@@ -26,6 +28,13 @@ public class InfoDumperPlugin extends BasePlugin {
 
     @Override
     public void onInitUniqueNPCs(List<Class<? extends NPC>> addedNpcs) {
+        // HACK: eisek is totally fucking broken as of 0.4.9.9, and just endlessly causes exceptions.
+        // try {
+        //     Main.game.addNPC(new Eisek(), false);
+        // } catch (Exception e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
         System.out.println("Game.initUniqueNPCs() completed.");
         System.out.println("  Beginning data dump...");
         System.out.println("    Perks...");
@@ -48,6 +57,10 @@ public class InfoDumperPlugin extends BasePlugin {
         BodyPartDumper.dump();
         System.out.println("    Racial Bodies...");
         RacialBodyDumper.dump();
+        System.out.println("    Subspecies...");
+        SubSpeciesDumper.dump();
+        System.out.println("    Places...");
+        PlaceDumper.dump();
         System.out.println("  Data dump complete!");
     }
 }

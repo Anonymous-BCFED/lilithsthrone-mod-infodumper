@@ -30,7 +30,7 @@ public class TestFemaleNPC extends NPC {
                 Gender.F_V_B_FEMALE,
                 Subspecies.HUMAN,
                 RaceStage.HUMAN,
-                new CharacterInventory(0),
+                new CharacterInventory(false,0),
                 WorldType.EMPTY,
                 PlaceType.GENERIC_HOLDING_CELL,
                 false);
@@ -111,7 +111,7 @@ public class TestFemaleNPC extends NPC {
         this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 
         // Feet:
-//		this.setFootStructure(FootStructure.PLANTIGRADE);
+        // 		this.setFootStructure(FootStructure.PLANTIGRADE);
     }
 
     @Override

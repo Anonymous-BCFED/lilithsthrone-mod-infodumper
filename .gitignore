@@ -10,3 +10,4 @@ deploy-for-testing.sh
 /.pre-commit-config.yaml
 /dist/
 /target/
+.idea/

@@ -61,10 +61,13 @@ public class JobsDumper {
                     json.key("colourWebHex").value(job.getColour().toWebHexString());
                     json.key("hourlyEventChance").value(job.getHourlyEventChance());
                     json.key("slaveLimit").value(job.getSlaveLimit());
-                    json.key("hourlyStaminaDrain").value(job.getHourlyStaminaDrain());
+                    json.key("hourlyStaminaDrain").value(job.getHourlyStaminaDrain(male));
                     json.key("nameFeminine").value(job.getNameFeminine());
                     json.key("nameMasculine").value(job.getNameMasculine());
                     json.key("description").value(job.getDescription());
+                    json.key("income").value(job.getIncome());
+                    json.key("incomeAffectionModifier").value(job.getAffectionIncomeModifier());
+                    json.key("incomeObedienceModifier").value(job.getObedienceIncomeModifier());
                     json.key("obedienceGain").value(job.getObedienceGain(male));
                     json.key("affectionGain").value(job.getAffectionGain(male));
                     json.key("obedienceAndAffectionBySexAndFetish");

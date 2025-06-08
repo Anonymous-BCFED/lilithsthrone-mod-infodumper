@@ -39,7 +39,7 @@ public class ItemDumper extends BaseDumper {
             json.key("items");
             json.object();
             ItemType.getAllItems().forEach(abstractItemType -> {
-                if (abstractItemType == null)
+                if (abstractItemType == null||abstractItemType.isMod())
                     return;
                 json.key(ItemType.getIdFromItemType(abstractItemType));
                 json.object();
